@@ -1,5 +1,5 @@
 {
-  "name": "react-material-ui-carousel",
+  "name": "@krplab/react-material-ui-carousel",
   "version": "3.5.0",
   "license": "MIT",
   "description": "A Generic, extendible Carousel UI component for React using Material UI",
