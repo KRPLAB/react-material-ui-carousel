@@ -115,9 +115,9 @@ export const sanitizeProps = (props: CarouselProps): SanitizedCarouselProps =>
     }
 }
 
-export const useInterval = (callback: Function, delay: number) =>
+export const useInterval = (callback: () => void, delay: number | null) =>
 {
-    const savedCallback = useRef<Function>(() => { });
+    const savedCallback = useRef<() => void>(() => {});
 
     // Remember the latest callback.
     useEffect(() =>

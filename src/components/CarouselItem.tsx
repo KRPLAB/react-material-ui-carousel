@@ -50,24 +50,28 @@ export const CarouselItem = ({ animation, next, prev, swipe, state, index, maxIn
 
     const divRef = useRef<any>(null);
 
-    const checkAndSetHeight = useCallback(() => {
-        if (index !== state.active) return;
-        if (!divRef.current) return;
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-        if (divRef.current.offsetHeight === 0)
-        {
-            setTimeout(() => checkAndSetHeight(), 100);
-        }
-        else
-        {
+
+    const checkAndSetHeight = useCallback(() => {
+        if (index !== state.active || !divRef.current) return;
+
+        if (divRef.current.offsetHeight === 0) {
+            timeoutRef.current = setTimeout(checkAndSetHeight, 100);
+        } 
+        else {
             setHeight(divRef.current.offsetHeight);
         }
-    }, [setHeight, state.active, index, divRef])
+    }, [index, state.active, setHeight])
 
     // Set height on every child change
-    useEffect(() =>
-    {
+    useEffect(() => {
         checkAndSetHeight();
+        return () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
+        }
             
     }, [checkAndSetHeight])
 
