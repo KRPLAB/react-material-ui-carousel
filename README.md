@@ -1,4 +1,6 @@
-# React Material UI Carousel [![npm version](https://img.shields.io/npm/v/react-material-ui-carousel.svg?style=flat)](https://www.npmjs.com/package/react-material-ui-carousel)
+# React Material UI Carousel [![npm version](https://img.shields.io/npm/v/@krplab/react-material-ui-carousel.svg?style=flat)](https://www.npmjs.com/package/@krplab/react-material-ui-carousel)
+
+> ⚠️ **Note:** This is a modernized fork maintained by [@krplab](https://github.com/KRPLAB). This version brings official support for **React 19**, **MUI v7**, and fixes memory leaks present in the original library.
 
 ## Description
 
@@ -7,14 +9,10 @@ It switches between given children using a smooth animation.
 Provides next and previous buttons.
 Also provides interactible bullet indicators.
 
-## Live Demo
-
-Take a look at this interactible [Live Demo](https://learus.github.io/react-material-ui-carousel)
-
 ## Installation
 
 ```shell
-npm install react-material-ui-carousel --save
+npm install @krplab/react-material-ui-carousel --save
 ```
 
 **Note:**
@@ -27,24 +25,23 @@ npm install @mui/icons-material
 npm install @mui/styles
 ```
 
-### Other Versions
+### Other Versions (Legacy)
 
 ```shell
+# Original Version 3 with MUI 5 support (React 17/18)
+npm install react-material-ui-carousel --save
+
 # Version 2 with MUI 4
 npm install react-material-ui-carousel@v2 --save
 npm install @material-ui/core
 npm install @material-ui/icons
-
-
-# Version 2 with MUI 5 support
-npm install react-material-ui-carousel@v2mui5 --save
 ```
 
 ## Usage Example
 
 ```jsx
 import React from 'react';
-import Carousel from 'react-material-ui-carousel'
+import Carousel from '@krplab/react-material-ui-carousel'
 import { Paper, Button } from '@mui/material'
 
 function Example(props)
@@ -128,14 +125,14 @@ and want to change them to be an MUI Icon or an image of our own.
 ```jsx
 
 
-import RandomIcon from '@@mui/icons-material/Random'; // Note: this doesn't exist
+import RandomIcon from '@mui/icons-material/Random'; // Note: this doesn't exist
 
 <Carousel
     NextIcon={<RandomIcon/>}
     PrevIcon={<RandomIcon/>}
     // OR
-    NextIcon={<img src="http://random.com/next"/>}
-    PrevIcon={<img src="http://random.com/prev"/>}
+    NextIcon={<img src="[http://random.com/next](http://random.com/next)"/>}
+    PrevIcon={<img src="[http://random.com/prev](http://random.com/prev)"/>}
 >
     {...}
 </Carousel>
@@ -229,7 +226,7 @@ import Home from '@mui/icons-material/Home';
 <Carousel
     IndicatorIcon={<Home/>}
     // OR
-    IndicatorIcon={<img src="http://random.com/home"/>}
+    IndicatorIcon={<img src="[http://random.com/home](http://random.com/home)"/>}
 >
     {...}
 </Carousel>
@@ -243,9 +240,9 @@ The `IndicatorIcon`  works the same way as the `NextIcon` and `PrevIcon` prop.
 Let's say we would like to have an array to icons like numbers, to order the elements of my carousel numerically. Let's do this!
  
 ```jsx
-const anArrayOfNumbers = [<img src="http://random.com/one"/>, 
-                          <img src="http://random.com/two"/>, 
-                          <img src="http://random.com/three"/>
+const anArrayOfNumbers = [<img src="[http://random.com/one](http://random.com/one)"/>, 
+                          <img src="[http://random.com/two](http://random.com/two)"/>, 
+                          <img src="[http://random.com/three](http://random.com/three)"/>
                          ];
 
 <Carousel
@@ -421,6 +418,8 @@ Giving the default styles in pseudo-code.
 
 The MIT License.
 
-## Author
+## Authors
 
-[Learus](https://learus.github.io)
+* **Original Author:** [Learus](https://learus.github.io)
+* **Modernized & Maintained by:** [KRPLAB](https://github.com/KRPLAB) (React 19 / MUI v7 Support)
+```
